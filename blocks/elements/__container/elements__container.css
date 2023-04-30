@@ -1,0 +1,16 @@
+.elements__container {
+	max-width: 282px;
+	background-color: #fff;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	grid-template-areas:
+		"image image image image"
+		"image image image image"
+		"image image image image"
+		"title title title like";
+	align-content: center;
+	align-items: center;
+	border-radius: 10px;
+	margin: 0 auto;
+}
