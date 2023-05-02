@@ -4,12 +4,14 @@
 	grid-template-rows: auto;
 	align-content: center;
 	align-items: center;
-	gap: 16px 18px;
+	column-gap: 18px;
+	/* row-gap: 16px; */
 }
+
 @media screen and (max-width: 360px) {
-    .profile__info-container {
-    		margin-bottom: 36px;
-    		text-align: center;
-    		gap: 14px 10px;
-    	}
+	.profile__info-container {
+		margin-bottom: 36px;
+		text-align: center;
+		gap: 14px 10px;
+	}
 }
