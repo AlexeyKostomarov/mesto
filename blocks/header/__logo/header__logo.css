@@ -4,10 +4,17 @@
 	margin: 0;
 	padding-bottom: 41px;
 }
+
+@media screen and (max-width: 900px) {
+	.header__logo {
+		margin-left: 50px;
+	}
+}
+
 @media screen and (max-width: 360px) {
-    .header__logo {
-    		margin-left: 27px;
-    		padding-bottom: 31px;
-    		width: 103px;
-    	}
+	.header__logo {
+		margin-left: 45px;
+		padding-bottom: 31px;
+		width: 103px;
+	}
 }

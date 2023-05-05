@@ -8,13 +8,25 @@
 	justify-content: center;
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 920px) {
 	.profile {
+		max-width: 720px;
+	}
+}
+
+@media screen and (max-width: 720px) {
+	.profile {
+		max-width: 600px;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.profile {
+		max-width: 282px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		text-align: centr;
-
 	}
 }

@@ -5,13 +5,13 @@
 	align-content: center;
 	align-items: center;
 	column-gap: 18px;
-	/* row-gap: 16px; */
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 640px) {
 	.profile__info-container {
 		margin-bottom: 36px;
+		margin-left: 20px;
 		text-align: center;
-		gap: 14px 10px;
+		column-gap: 10px;
 	}
 }

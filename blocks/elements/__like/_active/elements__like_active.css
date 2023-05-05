@@ -1,5 +1,3 @@
-.elements__like_active:focus {
+.elements__like_active {
 	background-image: url('../../../../image/Union.svg');
-	opacity: 1;
-
 }
