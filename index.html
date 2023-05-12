@@ -24,7 +24,7 @@
 			<button type="button" class="profile__button-add"></button>
 		</section>
 		<section class="elements">
-			<div class="elements__container">
+			<!-- <div class="elements__container">
 				<img src="./image/karachaevsk.png" alt="Карачаевск" class="elements__image" />
 				<h2 class="elements__title">Карачаевск</h2>
 				<button class="elements__like" type="button"></button>
@@ -53,25 +53,51 @@
 				<img src="./image/karachaevsk.png" alt="Карачаевск" class="elements__image" />
 				<h2 class="elements__title">Карачаево-Черкесск</h2>
 				<button class="elements__like" type="button"></button>
-			</div>
+			</div> -->
 		</section>
 	</main>
-	<div class="popup">
-		<div class="popup__container">
-			<h2 class="popup__title">Редактировать профиль</h2>
-			<button class="popup__close-button" type="button"></button>
-			<form action="#" name="form-popup" class="popup__form">
+	<div class="popup popup_type_profile">
+		<div class="popup__container popup__container_type_profile">
+			<h2 class="popup__title popup__title_type_profile">Редактировать профиль</h2>
+			<button class="popup__close-button popup__close-button_type_profile" type="button"></button>
+			<form action="#" name="form-popup" class="popup__form popup__form_type_profile">
 				<input class="popup__text-input popup__text-input_type_name" type="text" id="name" placeholder="Имя"
 					name="name" value="Жак-Ив Кусто" required />
 				<input class="popup__text-input popup__text-input_type_job" type="text" id="description"
 					placeholder="Деятельность" name="job" value="Исследователь океана" required />
-				<button type="submit" class="popup__submit-button">Сохранить</button>
+				<button type="submit" class="popup__submit-button popup__submit-button-elements">Сохранить</button>
 			</form>
+		</div>
+	</div>
+	<div class="popup popup_type_elements">
+		<div class="popup__container popup__container_type_elements">
+			<h2 class="popup__title popup__title_type_elements">Новое место</h2>
+			<button class="popup__close-button popup__close-button_type_elements" type="button"></button>
+			<form action="#" name="form-popup" class="popup__form popup__form_type_elements">
+				<input class="popup__text-input popup__text-input_type_name popup__text-input_type_description" type="text"
+					id="name" placeholder="Название" name="description" value="" required />
+				<input class="popup__text-input popup__text-input_type_job popup__text-input_type_link" type="text"
+					id="description" placeholder="Ссылка на картинку" name="link" value="" required />
+				<button type="submit" class="popup__submit-button">Создать</button>
+			</form>
+		</div>
+	</div>
+	<div class="popup popup__image">
+		<div class="popup__image-container">
+			<img src="" alt="" class="popup__image_full-screen">
+			<h2 class="popup__image__full-title"></h2>
 		</div>
 	</div>
 	<footer class="footer">
 		<p class="footer__copyright">© 2020 Mesto Russia</p>
 	</footer>
+	<template class="elements__template">
+		<div class="elements__container">
+			<img src="./image/karachaevsk.png" alt="Карачаевск" class="elements__image" />
+			<h2 class="elements__title">Карачаево-Черкесск</h2>
+			<button class="elements__like" type="button"></button>
+		</div>
+	</template>
 	<script src="./scripts/script.js"></script>
 </body>
 

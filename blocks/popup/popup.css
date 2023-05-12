@@ -1,5 +1,7 @@
 .popup {
 	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s, opacity 0.2s linear;
 	position: fixed;
 	display: flex;
 	align-items: center;
@@ -10,3 +12,11 @@
 	height: 100vh;
 	background: rgba(0, 0, 0, 0.5);
 }
+
+.popup-image {}
+
+.popup-image__container {}
+
+.popup-image__full-screen {}
+
+.popup-image__full-title {}
