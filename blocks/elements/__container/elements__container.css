@@ -2,6 +2,7 @@
 	max-width: 282px;
 	height: 361px;
 	background-color: #fff;
+	position: relative;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: repeat(3, 1fr);
