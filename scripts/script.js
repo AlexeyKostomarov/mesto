@@ -12,61 +12,38 @@ const popupAddCard = document.querySelector('.popup_type_elements');
 const formAddCard = popupAddCard.querySelector('.popup__form_type_elements');
 const formAddCardInputLink = formAddCard.querySelector('.popup__text-input_type_link');
 const formAddCardInputDescription = formAddCard.querySelector('.popup__text-input_type_description');
-const buttonClosePopupAddCards = document.querySelector('.popup__close-button_type_elements'); 
+const buttonClosePopupAddCards = document.querySelector('.popup__close-button_type_elements');
 const photoCards = document.querySelector('.elements');
-const templateCards = document.querySelector('.elements__template').content; // сохранение в переменной содержимого template элемента
+const templateCards = document.querySelector('.elements__template').content;
 
-formAddCard.addEventListener('submit', (evt) => {
-	evt.preventDefault();
-	const elementCard = templateCards.cloneNode(true); // Клонирование содержимого template элемента
-	elementCard.querySelector('.elements__image').src = formAddCardInputLink.value;
-	elementCard.querySelector('.elements__title').textContent = formAddCardInputDescription.value;
-	formAddCardInputDescription.value = '';
-	formAddCardInputLink.value = '';
+const popupImage = document.querySelector('.popup_type_image');
+const popupImageContainer = popupImage.querySelector('.popup__container_type_image')
+const buttonClosePopupImage = popupImage.querySelector('.popup__close-button_type_image');
+const popupImagePhoto = popupImage.querySelector('.popup__full-size_type_image');
+const popupImageTitle = popupImage.querySelector('.popup__title_type_image');
 
-	elementCard.querySelector('.elements__delite-button').addEventListener('click', delitePhoto);
-	photoCards.prepend(elementCard)
-	closePopup(popupAddCard)
-})
 
-const delitePhoto = (event) => {
-	const item = event.target.closest('.elements__container');
+
+
+const delitePhoto = (evt) => {
+	const item = evt.target.closest('.elements__container');
 	item.remove();
 }
 
-const renderElements = (todo) => {
-	const elementCard = templateCards.cloneNode(true); // Клонирование содержимого template элемента
-	elementCard.querySelector('.elements__image').src = todo.link;
-	elementCard.querySelector('.elements__title').textContent = todo.name; 
-	elementCard.querySelector('.elements__like').addEventListener('click', function (evt) { // Реализация активной кнопки лайка
-		evt.target.classList.toggle('elements__like_active');
-	})
-	elementCard.querySelector('.elements__delite-button').addEventListener('click', delitePhoto);
+const handleFormSubmitAddCard = (evt) => {
+	evt.preventDefault();
+	const inputValue = {
+		link: formAddCardInputLink.value,
+		name: formAddCardInputDescription.value
+	}
+	renderElements(inputValue);
+	formAddCardInputLink.value = "";
+	formAddCardInputDescription.value = "";
 
-
-	photoCards.append(elementCard); 
+	closePopup(popupAddCard)
 }
 
-initialCards.forEach(function (todo) { 
-	renderElements(todo);
-})
-
-function openPopupEdit() { // Функция открытия попапа для редактирования профиля: 
-	popupEdit.classList.add('popup_visible');
-
-	jobInput.value = profileDescription.textContent;
-	nameInput.value = profileUsername.textContent;
-}
-
-function openPopupAddCard() { // Функция открытия попапа для загразки фото: 
-	popupAddCard.classList.add('popup_visible');
-}
-
-function closePopup(popUp) { // Функция закрытия попапа
-	popUp.classList.remove('popup_visible');
-}
-
-function handleFormSubmitProfile(evt) { // Метод отправки формы попапа редактирования:
+const handleFormSubmitProfile = (evt) => {
 	evt.preventDefault();
 
 	profileDescription.textContent = jobInput.value;
@@ -75,19 +52,54 @@ function handleFormSubmitProfile(evt) { // Метод отправки форм�
 	closePopup(popupEdit)
 }
 
+const renderElements = (todo) => {
+	const elementCard = templateCards.cloneNode(true);
+	elementCard.querySelector('.elements__image').src = todo.link;
+	elementCard.querySelector('.elements__title').textContent = todo.name;
+	elementCard.querySelector('.elements__image').alt = todo.name;
+	elementCard.querySelector('.elements__like').addEventListener('click', function (evt) {
+		evt.target.classList.toggle('elements__like_active');
+	})
+	elementCard.querySelector('.elements__delite-button').addEventListener('click', delitePhoto);
 
+	elementCard.querySelector('.elements__image').addEventListener('click', function (evt) {
+		showPopup(popupImage);
+		popupImagePhoto.src = todo.link;
+		popupImageTitle.textContent = todo.name;
+	})
 
-buttonEdit.addEventListener('click', openPopupEdit); // Открытие попапа редактирования профиля 
-buttonAddCard.addEventListener('click', openPopupAddCard) // Открытие попапа загрузки фото
-buttonClosePopupAddCards.addEventListener('click', function() { // Закрытие попапа для загрузки фото
+	photoCards.prepend(elementCard)
+}
+
+initialCards.forEach(function (todo) {
+	renderElements(todo);
+})
+
+const showPopup = (popUp) => {
+	popUp.classList.add('popup_visible');
+}
+
+const closePopup = (popUp) => {
+	popUp.classList.remove('popup_visible');
+}
+
+buttonEdit.addEventListener('click', function () {
+	showPopup(popupEdit)
+});
+buttonAddCard.addEventListener('click', function () {
+	showPopup(popupAddCard)
+})
+buttonClosePopupImage.addEventListener('click', function () {
+	closePopup(popupImage)
+})
+buttonClosePopupAddCards.addEventListener('click', function () {
 	closePopup(popupAddCard);
-}) 
-buttonClosePopupProfile.addEventListener('click', function() {
+})
+buttonClosePopupProfile.addEventListener('click', function () {
 	closePopup(popupEdit)
-}); // Закрытие попапа редактирования профиля
-popupFormProfile.addEventListener('submit', handleFormSubmitProfile); // Метод отправки формы попапа редактирования
-
-
+});
+popupFormProfile.addEventListener('submit', handleFormSubmitProfile);
+formAddCard.addEventListener('submit', handleFormSubmitAddCard);
 
 
 
