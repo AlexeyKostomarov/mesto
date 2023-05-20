@@ -90,8 +90,8 @@ const closePopup = (popUp) => {
 buttonEdit.addEventListener('click', function () {
 	showPopup(popupEdit)
 
-	profileUsername.textContent = nameInput.value;
-	profileDescription = jobInput.value;
+	nameInput.value = profileUsername.textContent;
+	jobInput.value = profileDescription.textContent
 });
 buttonAddCard.addEventListener('click', function () {
 	showPopup(popupAddCard)
