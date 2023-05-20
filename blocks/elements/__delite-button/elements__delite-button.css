@@ -3,6 +3,8 @@
     background-image: url(../../../image/Group.svg);
     background-position: center;
     background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
     width: 18px;
     height: 29px;
     right: 20px;
