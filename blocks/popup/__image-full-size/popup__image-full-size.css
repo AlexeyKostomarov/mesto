@@ -1,4 +1,4 @@
-.popup__full-size_type_image {
+.popup__image-full-size {
 	object-fit: cover;
 	object-position: center;
 	max-width: 75vw;

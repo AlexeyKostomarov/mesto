@@ -19,8 +19,8 @@ const templateCards = document.querySelector('.elements__template').content;
 const popupImage = document.querySelector('.popup_type_image');
 const popupImageContainer = popupImage.querySelector('.popup__container_type_image')
 const buttonClosePopupImage = popupImage.querySelector('.popup__close-button_type_image');
-const popupImagePhoto = popupImage.querySelector('.popup__full-size_type_image');
-const popupImageTitle = popupImage.querySelector('.popup__title_type_image');
+const popupImagePhoto = popupImage.querySelector('.popup__image-full-size');
+const popupImageTitle = popupImage.querySelector('.popup__image-title');
 
 
 
