@@ -18,13 +18,13 @@
 	margin: 0 0 45px 0;
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 520px) {
 	.popup__text-input:first-of-type {
 		margin-bottom: 30px;
 	}
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 520px) {
 	.popup__text-input:last-of-type {
 		margin-bottom: 40px;
 	}
