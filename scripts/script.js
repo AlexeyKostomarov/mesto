@@ -39,6 +39,7 @@ const handleFormSubmitAddCard = (evt) => {
 	renderElements(inputValue);
 	formAddCard.reset();
 
+	photoCard.prepend(renderElements(inputValue))
 	closePopup(popupAddCard)
 }
 
@@ -73,8 +74,9 @@ const renderElements = (todo) => {
 }
 
 
+
 initialCards.forEach(function (todo) {
-	photoCard.prepend(renderElements(todo))
+	photoCard.append(renderElements(todo))
 })
 
 const showPopup = (popUp) => {
@@ -84,6 +86,8 @@ const showPopup = (popUp) => {
 const closePopup = (popUp) => {
 	popUp.classList.remove('popup_visible');
 }
+
+
 
 buttonEdit.addEventListener('click', function () {
 	showPopup(popupEdit)
@@ -105,9 +109,6 @@ buttonClosePopupProfile.addEventListener('click', function () {
 });
 popupFormProfile.addEventListener('submit', handleFormSubmitProfile);
 formAddCard.addEventListener('submit', handleFormSubmitAddCard);
-
-
-
 
 
 
