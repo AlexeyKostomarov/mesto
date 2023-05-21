@@ -36,10 +36,9 @@ const handleFormSubmitAddCard = (evt) => {
 		link: formAddCardInputLink.value,
 		name: formAddCardInputDescription.value
 	}
-	renderElements(inputValue);
 	formAddCard.reset();
 
-	photoCard.prepend(renderElements(inputValue))
+	photoCard.prepend(renderElements(inputValue));
 	closePopup(popupAddCard)
 }
 
