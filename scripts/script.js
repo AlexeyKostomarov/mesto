@@ -69,14 +69,12 @@ const renderElements = (todo) => {
 		popupImagePhoto.alt = todo.name;
 	})
 
-
-	photoCard.prepend(elementCard);
 	return elementCard;
 }
 
 
 initialCards.forEach(function (todo) {
-	renderElements(todo);
+	photoCard.prepend(renderElements(todo))
 })
 
 const showPopup = (popUp) => {
@@ -107,6 +105,10 @@ buttonClosePopupProfile.addEventListener('click', function () {
 });
 popupFormProfile.addEventListener('submit', handleFormSubmitProfile);
 formAddCard.addEventListener('submit', handleFormSubmitAddCard);
+
+
+
+
 
 
 
