@@ -10,6 +10,10 @@
 	outline: none;
 }
 
+.popup__text-input-error {
+	border-color: red;
+}
+
 .popup__text-input:first-of-type {
 	margin-bottom: 27px;
 }

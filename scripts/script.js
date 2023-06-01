@@ -57,9 +57,6 @@ const renderElements = (todo) => {
 	elementImage.src = todo.link;
 	elementCard.querySelector('.elements__title').textContent = todo.name;
 	elementImage.alt = todo.name;
-	elementCard.querySelector('.elements__like').addEventListener('click', function (evt) {
-		evt.target.classList.toggle('elements__like_active');
-	})
 	elementCard.querySelector('.elements__delite-button').addEventListener('click', deletePhoto);
 
 	elementImage.addEventListener('click', function (evt) {
@@ -73,21 +70,43 @@ const renderElements = (todo) => {
 }
 
 
-
 initialCards.forEach(function (todo) {
 	photoCard.append(renderElements(todo))
 })
 
 const showPopup = (popUp) => {
 	popUp.classList.add('popup_visible');
+	document.addEventListener('keydown', closePopupEsc);
+	document.addEventListener('click', closePopupOverlay)
 }
 
 const closePopup = (popUp) => {
 	popUp.classList.remove('popup_visible');
+	document.removeEventListener('keydown', closePopupEsc)
+	document.removeEventListener('click', closePopupOverlay)
 }
 
+const closePopupEsc = (evt) => {
+	if (evt.key === 'Escape') {
+		const popup = document.querySelector('.popup_visible')
+		closePopup(popup)
+	}
+}
 
+const closePopupOverlay = (evt) => {
+	if (evt.target.classList.contains('popup_visible')) {
+		const popup = document.querySelector('.popup_visible')
+		closePopup(popup)
+	}
+}
 
+const likePhoto = (evt) => {
+	if (evt.target.classList.contains('elements__like')) {
+		evt.target.classList.toggle('elements__like_active')
+	}
+}
+
+photoCard.addEventListener('click', likePhoto);
 buttonEdit.addEventListener('click', function () {
 	showPopup(popupEdit)
 
@@ -96,13 +115,13 @@ buttonEdit.addEventListener('click', function () {
 });
 buttonAddCard.addEventListener('click', function () {
 	showPopup(popupAddCard)
-})
+});
 buttonClosePopupImage.addEventListener('click', function () {
 	closePopup(popupImage)
-})
+});
 buttonClosePopupAddCards.addEventListener('click', function () {
 	closePopup(popupAddCard);
-})
+});
 buttonClosePopupProfile.addEventListener('click', function () {
 	closePopup(popupEdit)
 });

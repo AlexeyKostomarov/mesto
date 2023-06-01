@@ -32,11 +32,13 @@
 		<div class="popup__container popup__container_type_profile">
 			<h2 class="popup__title popup__title_type_profile">Редактировать профиль</h2>
 			<button class="popup__close-button" type="button"></button>
-			<form action="#" name="form-popup-profile" class="popup__form popup__form_type_profile">
-				<input class="popup__text-input popup__text-input_type_name" type="text" placeholder="Имя" name="name"
-					value="" required />
-				<input class="popup__text-input popup__text-input_type_job" type="text" placeholder="Деятельность"
-					name="job" value="" required />
+			<form action="#" name="form-popup-profile" class="popup__form popup__form_type_profile" novalidate>
+				<input id="input-name" class="popup__text-input popup__text-input_type_name" type="text" placeholder="Имя"
+					name="name" value="" required />
+				<span class="popup__input-error input-name-error"></span>
+				<input id="input-job" class="popup__text-input popup__text-input_type_job" type="text"
+					placeholder="Деятельность" name="job" value="" required />
+				<span class="popup__input-error input-job-error"></span>
 				<button type="submit" class="popup__submit-button popup__submit-button-elements">Сохранить</button>
 			</form>
 		</div>
@@ -45,11 +47,13 @@
 		<div class="popup__container popup__container_type_elements">
 			<h2 class="popup__title popup__title_type_elements">Новое место</h2>
 			<button class="popup__close-button" type="button"></button>
-			<form action="#" name="form-popup-elements" class="popup__form popup__form_type_elements">
-				<input class="popup__text-input popup__text-input_type_description" type="text" placeholder="Название"
-					name="description" value="" required />
-				<input class="popup__text-input popup__text-input_type_link" type="text" placeholder="Ссылка на картинку"
-					name="link" value="" required />
+			<form action="#" name="form-popup-elements" class="popup__form popup__form_type_elements" novalidate>
+				<input id="input-description" class="popup__text-input popup__text-input_type_description" type="text"
+					placeholder="Название" name="description" value="" required />
+				<span class="popup__input-error input-description-error"></span>
+				<input id="input-link" class="popup__text-input popup__text-input_type_link" type="url"
+					placeholder="Ссылка на картинку" name="link" value="" required />
+				<span class="popup__input-error input-link-error"></span>
 				<button type="submit" class="popup__submit-button">Создать</button>
 			</form>
 		</div>
