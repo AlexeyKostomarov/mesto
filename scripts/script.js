@@ -22,6 +22,8 @@ const buttonClosePopupImage = popupImage.querySelector('.popup__close-button');
 const popupImagePhoto = popupImage.querySelector('.popup__image-full-size');
 const popupImageTitle = popupImage.querySelector('.popup__image-title');
 
+const submitElements = popupAddCard.querySelector('.popup__submit-button_type_elements')
+
 
 
 
@@ -37,6 +39,9 @@ const handleFormSubmitAddCard = (evt) => {
 		name: formAddCardInputDescription.value
 	}
 	formAddCard.reset();
+	
+	submitElements.classList.add('popup__submit-button_disabled');
+	submitElements.setAttribute('disabled', 'disabled')
 
 	photoCard.prepend(renderElements(inputValue));
 	closePopup(popupAddCard)
@@ -77,7 +82,7 @@ initialCards.forEach(function (todo) {
 const showPopup = (popUp) => {
 	popUp.classList.add('popup_visible');
 	document.addEventListener('keydown', closePopupEsc);
-	document.addEventListener('click', closePopupOverlay)
+	document.addEventListener('click', closePopupOverlay);
 }
 
 const closePopup = (popUp) => {

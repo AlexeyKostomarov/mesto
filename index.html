@@ -34,12 +34,12 @@
 			<button class="popup__close-button" type="button"></button>
 			<form action="#" name="form-popup-profile" class="popup__form popup__form_type_profile" novalidate>
 				<input id="input-name" class="popup__text-input popup__text-input_type_name" type="text" placeholder="Имя"
-					name="name" value="" required />
+					name="name" value="" minlength="2" maxlength="40" required />
 				<span class="popup__input-error input-name-error"></span>
 				<input id="input-job" class="popup__text-input popup__text-input_type_job" type="text"
-					placeholder="Деятельность" name="job" value="" required />
+					placeholder="Деятельность" name="job" value="" minlength="2" maxlength="200" required />
 				<span class="popup__input-error input-job-error"></span>
-				<button type="submit" class="popup__submit-button popup__submit-button-elements">Сохранить</button>
+				<button type="submit" class="popup__submit-button popup__submit-button_type_profile">Сохранить</button>
 			</form>
 		</div>
 	</div>
@@ -49,12 +49,12 @@
 			<button class="popup__close-button" type="button"></button>
 			<form action="#" name="form-popup-elements" class="popup__form popup__form_type_elements" novalidate>
 				<input id="input-description" class="popup__text-input popup__text-input_type_description" type="text"
-					placeholder="Название" name="description" value="" required />
+					placeholder="Название" name="description" value="" minlength="2" maxlength="30" required />
 				<span class="popup__input-error input-description-error"></span>
 				<input id="input-link" class="popup__text-input popup__text-input_type_link" type="url"
 					placeholder="Ссылка на картинку" name="link" value="" required />
 				<span class="popup__input-error input-link-error"></span>
-				<button type="submit" class="popup__submit-button">Создать</button>
+				<button type="submit" class="popup__submit-button popup__submit-button_type_elements">Создать</button>
 			</form>
 		</div>
 	</div>
@@ -76,6 +76,7 @@
 			<button class="elements__like" type="button"></button>
 		</div>
 	</template>
+	<script src="./scripts/validate.js"></script>
 	<script src="./scripts/constants.js"></script>
 	<script src="./scripts/script.js"></script>
 </body>

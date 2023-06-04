@@ -9,27 +9,3 @@
 	line-height: 17px;
 	outline: none;
 }
-
-.popup__text-input-error {
-	border-color: red;
-}
-
-.popup__text-input:first-of-type {
-	margin-bottom: 27px;
-}
-
-.popup__text-input:last-of-type {
-	margin: 0 0 45px 0;
-}
-
-@media screen and (max-width: 520px) {
-	.popup__text-input:first-of-type {
-		margin-bottom: 30px;
-	}
-}
-
-@media screen and (max-width: 520px) {
-	.popup__text-input:last-of-type {
-		margin-bottom: 40px;
-	}
-}
