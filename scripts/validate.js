@@ -4,7 +4,8 @@ const configValidation = {
 	submitButtonSelector: '.popup__submit-button',
 	inactiveButtonClass: 'popup__submit-button_disabled',
 	inputErrorClass: '.popup__text-input-error'
-  }; 
+};
+
 
 const showInputError = (formElement, inputElement, errorMessage, config) => {
 	const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
@@ -31,14 +32,11 @@ const isValid = (formElement, inputElement, config) => {
 const setEventListeners = (formElement, config) => {
 	const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
 	const buttonElement = formElement.querySelector(config.submitButtonSelector)
-
 	toggleButtonState(inputList, buttonElement, config)
 
 	inputList.forEach((inputElement) => {
 		inputElement.addEventListener('input', () => {
 			isValid(formElement, inputElement, config);
-
-
 			toggleButtonState(inputList, buttonElement, config);
 		});
 	});
@@ -49,6 +47,14 @@ const enableValidation = (config) => {
 
 	formList.forEach((formElement) => {
 		setEventListeners(formElement, config)
+
+	})
+}
+
+const removeErrorText = () => {
+	errorElementText = Array.from(document.querySelectorAll('.popup__input-error'));
+	errorElementText.forEach((error) => {
+		error.textContent = '';
 	})
 }
 
@@ -59,7 +65,7 @@ const hasInvalidInput = (inputList) => {
 }
 
 const toggleButtonState = (inputList, buttonElement, config) => {
-	if(hasInvalidInput(inputList)) {
+	if (hasInvalidInput(inputList)) {
 		buttonElement.classList.add(config.inactiveButtonClass);
 		buttonElement.setAttribute('disabled', 'disabled')
 	} else {
