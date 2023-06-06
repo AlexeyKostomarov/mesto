@@ -6,6 +6,7 @@
 	background-image: url("../../../image/add-button.svg");
 	background-position: center;
 	background-repeat: no-repeat;
+	outline: none;
 	border: 2px solid #fff;
 	border-radius: 2px;
 	cursor: pointer;

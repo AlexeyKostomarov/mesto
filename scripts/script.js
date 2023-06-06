@@ -19,6 +19,7 @@ const buttonClosePopupImage = popupImage.querySelector('.popup__close-button');
 const popupImagePhoto = popupImage.querySelector('.popup__image-full-size');
 const popupImageTitle = popupImage.querySelector('.popup__image-title');
 const submitElements = popupAddCard.querySelector('.popup__submit-button_type_elements');
+const submitProfile = popupEdit.querySelector('.popup__submit-button_type_profile');
 
 
 const handleFormSubmitAddCard = (evt) => {
@@ -28,15 +29,21 @@ const handleFormSubmitAddCard = (evt) => {
 		name: formAddCardInputDescription.value
 	};
 	formAddCard.reset();
-	submitElements.classList.add('popup__submit-button_disabled');
-	submitElements.setAttribute('disabled', 'disabled');
 	cardsContainer.prepend(createCard(inputValue));
+	createButtonDisable(submitElements);
 	closePopup(popupAddCard);
 }
+
+const createButtonDisable = (button) => {
+	button.classList.add('popup__submit-button_disabled');
+	button.setAttribute('disabled', 'disabled');
+}
+
 const handleFormSubmitProfile = (evt) => {
 	evt.preventDefault();
 	profileDescription.textContent = formProfileInputJob.value;
 	profileUsername.textContent = formProfileInputName.value;
+	createButtonDisable(submitProfile);
 	closePopup(popupEdit);
 }
 const createCard = (todo) => {
@@ -67,8 +74,8 @@ const handleDeleteCardElement = (evt) => {
 const addCards = () => initialCards.forEach((todo) => {
 	cardsContainer.append(createCard(todo));
 })
-const showPopup = (popUp) => {
-	popUp.classList.add('popup_visible');
+const showPopup = (popup) => {
+	popup.classList.add('popup_visible');
 	document.addEventListener('keydown', handleClosePopupEsc);
 	document.addEventListener('click', handleClosePopupOverlay);
 }
@@ -76,17 +83,21 @@ const closePopup = (popup) => {
 	popup.classList.remove('popup_visible');
 	document.removeEventListener('keydown', handleClosePopupEsc);
 	document.removeEventListener('click', handleClosePopupOverlay);
+	createButtonDisable(submitProfile);
+	createButtonDisable(submitElements);
 }
 const handleClosePopupEsc = (evt) => {
 	if (evt.key === 'Escape') {
 		const popup = document.querySelector('.popup_visible');
 		closePopup(popup);
+		formAddCard.reset();
 	}
 }
 const handleClosePopupOverlay = (evt) => {
 	if (evt.target.classList.contains('popup_visible')) {
 		const popup = document.querySelector('.popup_visible');
 		closePopup(popup);
+		formAddCard.reset();
 	}
 }
 

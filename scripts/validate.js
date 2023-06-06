@@ -25,7 +25,7 @@ const isValid = (formElement, inputElement, config) => {
 const setEventListeners = (formElement, config) => {
 	const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
 	const buttonElement = formElement.querySelector(config.submitButtonSelector)
-	toggleButtonState(inputList, buttonElement, config)
+	toggleButtonState(inputList, buttonElement, config);
 	inputList.forEach((inputElement) => {
 		inputElement.addEventListener('input', () => {
 			isValid(formElement, inputElement, config);
