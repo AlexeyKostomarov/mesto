@@ -21,7 +21,6 @@ const popupImageTitle = popupImage.querySelector('.popup__image-title');
 const submitElements = popupAddCard.querySelector('.popup__submit-button_type_elements');
 const submitProfile = popupEdit.querySelector('.popup__submit-button_type_profile');
 
-
 const handleFormSubmitAddCard = (evt) => {
 	evt.preventDefault();
 	const inputValue = {
@@ -30,49 +29,47 @@ const handleFormSubmitAddCard = (evt) => {
 	};
 	formAddCard.reset();
 	cardsContainer.prepend(createCard(inputValue));
-	createButtonDisable(submitElements);
 	closePopup(popupAddCard);
 }
 
-const createButtonDisable = (button) => {
-	button.classList.add('popup__submit-button_disabled');
-	button.setAttribute('disabled', 'disabled');
+const createButtonDisabled = (popup) => {
+	const submitButton = popup.querySelector('.popup__submit-button');
+	submitButton.setAttribute('disabled', 'disabled');
+	submitButton.classList.add('popup__submit-button_disabled');
 }
 
 const handleFormSubmitProfile = (evt) => {
 	evt.preventDefault();
 	profileDescription.textContent = formProfileInputJob.value;
 	profileUsername.textContent = formProfileInputName.value;
-	createButtonDisable(submitProfile);
+
 	closePopup(popupEdit);
 }
-const createCard = (todo) => {
+const createCard = (card) => {
 	const elementCard = templateCard.cloneNode(true);
 	const elementImage = elementCard.querySelector('.elements__image');
-	elementImage.src = todo.link;
-	elementCard.querySelector('.elements__title').textContent = todo.name;
-	elementImage.alt = todo.name;
+	const elementLike = elementCard.querySelector('.elements__like');
+	elementImage.src = card.link;
+	elementCard.querySelector('.elements__title').textContent = card.name;
+	elementImage.alt = card.name;
 	elementCard.querySelector('.elements__delete-button').addEventListener('click', handleDeleteCardElement);
-	cardsContainer.addEventListener('click', handleLikePhoto);
-	elementImage.addEventListener('click', (evt) => {
+	elementLike.addEventListener('click', (evt) => {
+		evt.target.classList.toggle('elements__like_active')
+	});
+	elementImage.addEventListener('click', () => {
 		showPopup(popupImage);
-		popupImagePhoto.src = todo.link;
-		popupImageTitle.textContent = todo.name;
-		popupImagePhoto.alt = todo.name;
+		popupImagePhoto.src = card.link;
+		popupImageTitle.textContent = card.name;
+		popupImagePhoto.alt = card.name;
 	})
 	return elementCard;
-}
-const handleLikePhoto = (evt) => {
-	if (evt.target.classList.contains('elements__like')) {
-		evt.target.classList.toggle('elements__like_active');
-	}
 }
 const handleDeleteCardElement = (evt) => {
 	const item = evt.target.closest('.elements__container');
 	item.remove();
 }
-const addCards = () => initialCards.forEach((todo) => {
-	cardsContainer.append(createCard(todo));
+const addCards = () => initialCards.forEach((card) => {
+	cardsContainer.append(createCard(card));
 })
 const showPopup = (popup) => {
 	popup.classList.add('popup_visible');
@@ -83,8 +80,7 @@ const closePopup = (popup) => {
 	popup.classList.remove('popup_visible');
 	document.removeEventListener('keydown', handleClosePopupEsc);
 	document.removeEventListener('click', handleClosePopupOverlay);
-	createButtonDisable(submitProfile);
-	createButtonDisable(submitElements);
+	createButtonDisabled(popup);
 }
 const handleClosePopupEsc = (evt) => {
 	if (evt.key === 'Escape') {
@@ -126,9 +122,3 @@ popupFormProfile.addEventListener('submit', handleFormSubmitProfile);
 formAddCard.addEventListener('submit', handleFormSubmitAddCard);
 
 addCards();
-
-
-
-
-
-
