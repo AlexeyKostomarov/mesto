@@ -18,8 +18,6 @@ const popupImage = document.querySelector('.popup_type_image');
 const buttonClosePopupImage = popupImage.querySelector('.popup__close-button');
 const popupImagePhoto = popupImage.querySelector('.popup__image-full-size');
 const popupImageTitle = popupImage.querySelector('.popup__image-title');
-const submitElements = popupAddCard.querySelector('.popup__submit-button_type_elements');
-const submitProfile = popupEdit.querySelector('.popup__submit-button_type_profile');
 
 const handleFormSubmitAddCard = (evt) => {
 	evt.preventDefault();
@@ -53,9 +51,7 @@ const createCard = (card) => {
 	elementCard.querySelector('.elements__title').textContent = card.name;
 	elementImage.alt = card.name;
 	elementCard.querySelector('.elements__delete-button').addEventListener('click', handleDeleteCardElement);
-	elementLike.addEventListener('click', (evt) => {
-		evt.target.classList.toggle('elements__like_active')
-	});
+	elementLike.addEventListener('click', handleLikeButton);
 	elementImage.addEventListener('click', () => {
 		showPopup(popupImage);
 		popupImagePhoto.src = card.link;
@@ -63,6 +59,9 @@ const createCard = (card) => {
 		popupImagePhoto.alt = card.name;
 	})
 	return elementCard;
+}
+const handleLikeButton = (evt) => {
+	evt.target.classList.toggle('elements__like_active')
 }
 const handleDeleteCardElement = (evt) => {
 	const item = evt.target.closest('.elements__container');
@@ -122,3 +121,19 @@ popupFormProfile.addEventListener('submit', handleFormSubmitProfile);
 formAddCard.addEventListener('submit', handleFormSubmitAddCard);
 
 addCards();
+
+
+const truncate = (text, length) => {
+	// BEGIN (write your solution here)
+
+	const str = text.slice(0, length);
+	const textLength = str + '...'
+	return textLength
+
+	// END
+};
+
+
+
+
+
