@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./vendor/normalize.css">
+	<link rel="stylesheet" href="./pages/index.css">
+	<title>Document</title>
+</head>
+
+<body class="page">
+	<header class="header">
+		<img src="./image/logo-header.svg" alt="Логотип сайта Место" class="header__logo" />
+	</header>
+	<main class="main">
+		<section class="profile">
+			<img src="./image/avatar-profile.jpg" alt="Аватар пользователя" class="profile__avatar" />
+			<div class="profile__info-container">
+				<h1 class="profile__username">Жак-Ив Кусто</h1>
+				<button type="button" class="profile__button-edit"></button>
+				<p class="profile__user-description">Исследователь океана</p>
+			</div>
+			<button type="button" class="profile__button-add"></button>
+		</section>
+		<section class="elements">
+		</section>
+	</main>
+	<div class="popup popup_type_profile">
+		<div class="popup__container popup__container_type_profile">
+			<h2 class="popup__title popup__title_type_profile">Редактировать профиль</h2>
+			<button class="popup__close-button" type="button"></button>
+			<form action="#" name="form-popup-profile" class="popup__form popup__form_type_profile">
+				<input class="popup__text-input popup__text-input_type_name" type="text" placeholder="Имя" name="name"
+					value="" required />
+				<input class="popup__text-input popup__text-input_type_job" type="text" placeholder="Деятельность"
+					name="job" value="" required />
+				<form action="#" name="form-popup-profile" class="popup__form popup__form_type_profile" novalidate>
+					<input id="input-name" class="popup__text-input popup__text-input_type_name" type="text"
+						placeholder="Имя" name="name" value="" required />
+					<span class="popup__input-error input-name-error"></span>
+					<input id="input-job" class="popup__text-input popup__text-input_type_job" type="text"
+						placeholder="Деятельность" name="job" value="" required />
+					<span class="popup__input-error input-job-error"></span>
+					<button type="submit" class="popup__submit-button popup__submit-button-elements">Сохранить</button>
+				</form>
+		</div>
+	</div>
+	<div class="popup popup_type_elements">
+		<div class="popup__container popup__container_type_elements">
+			<h2 class="popup__title popup__title_type_elements">Новое место</h2>
+			<button class="popup__close-button" type="button"></button>
+			<form action="#" name="form-popup-elements" class="popup__form popup__form_type_elements">
+				<input class="popup__text-input popup__text-input_type_description" type="text" placeholder="Название"
+					name="description" value="" required />
+				<input class="popup__text-input popup__text-input_type_link" type="text" placeholder="Ссылка на картинку"
+					name="link" value="" required />
+				<form action="#" name="form-popup-elements" class="popup__form popup__form_type_elements" novalidate>
+					<input id="input-description" class="popup__text-input popup__text-input_type_description" type="text"
+						placeholder="Название" name="description" value="" required />
+					<span class="popup__input-error input-description-error"></span>
+					<input id="input-link" class="popup__text-input popup__text-input_type_link" type="url"
+						placeholder="Ссылка на картинку" name="link" value="" required />
+					<span class="popup__input-error input-link-error"></span>
+					<button type="submit" class="popup__submit-button">Создать</button>
+				</form>
+		</div>
+	</div>
+	<div class="popup popup_type_image">
+		<div class="popup__image-container">
+			<button class="popup__close-button" type="button"></button>
+			<img src="# " alt="" class="popup__image-full-size">
+			<p class="popup__image-title"></p>
+		</div>
+	</div>
+	<footer class="footer">
+		<p class="footer__copyright">© 2020 Mesto Russia</p>
+	</footer>
+	<template class="elements__template">
+		<div class="elements__container">
+			<button class="elements__delite-button" type="button"></button>
+			<img src="./image/karachaevsk.png" alt="" class="elements__image" />
+			<h2 class="elements__title">Карачаево-Черкесск</h2>
+			<button class="elements__like" type="button"></button>
+		</div>
+	</template>
+	<script src="./scripts/constants.js"></script>
+	<script src="./scripts/script.js"></script>
+</body>
+
+</html>
